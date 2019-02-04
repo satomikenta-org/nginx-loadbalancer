@@ -1,0 +1,13 @@
+version: '3'
+services:
+  server1:
+    build: ./server/
+  server2:
+    build: ./server/
+  loadbalancer:
+    build: ./loadbalancer/
+    ports:
+      - 80:80
+    depends_on:
+      - server1
+      - server2
